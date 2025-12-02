@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Management System - Welcome</title>
+<link rel="stylesheet" href="glass.css">
+<style>
+    /* Hide sections by default except home */
+    .hidden {
+        display: none;
+    }
+    /* Modal styling */
+    .modal {
+        display: none;
+        position: fixed;
+        top:0; left:0;
+        width:100%; height:100%;
+        background: rgba(0,0,0,0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+    .modal-content {
+        background: #fff;
+        padding: 20px;
+        max-width: 500px;
+        width: 90%;
+        border-radius: 8px;
+        position: relative;
+    }
+    .modal-large {
+        max-width: 800px;
+    }
+    .modal-content .close {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+    <div class="container">
+        <div class="nav-brand"><h2>Management System</h2></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#recruitment">Recruitment</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Sections -->
+<section id="home" class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <img src="images/index.png" alt="Logo" class="hero-image">
+            <h1>Welcome to Our Management System</h1>
+            <p>Streamline your operations with our comprehensive management platform</p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="openModal('loginModal')">Login</button>
+                <button class="btn btn-secondary" onclick="openModal('signupModal')">Sign Up</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about-section hidden">
+    <div class="container">
+        <h2>About Our System</h2>
+        <div class="about-grid">
+            <div class="about-card"><h3>User Management</h3><p>Efficiently manage user profiles, permissions, and access rights</p></div>
+            <div class="about-card"><h3>Performance Tracking</h3><p>Monitor attendance, performance metrics, and generate reports</p></div>
+            <div class="about-card"><h3>Communication</h3><p>Integrated messaging system for seamless team collaboration</p></div>
+            <div class="about-card"><h3>Document Management</h3><p>Store and manage receipts, reports, and important documents</p></div>
+        </div>
+    </div>
+</section>
+
+<section id="recruitment" class="recruitment-section hidden">
+    <div class="container">
+        <h2>Join Our Team</h2>
+        <p>We're always looking for talented individuals to join our organization</p>
+        <button class="btn btn-primary" onclick="openModal('applicationModal')">Apply Now</button>
+    </div>
+</section>
+
+<section id="contact" class="contact-section hidden">
+    <div class="container">
+        <h2>Get in Touch</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<!-- Modals -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('loginModal')">&times;</span>
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" required>
+            </div>
+            <div class="form-group">
+                <label><input type="checkbox"> Remember me</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <p class="form-footer">Don't have an account? <a href="#" onclick="switchModal('loginModal','signupModal')">Sign up</a></p>
+        </form>
+    </div>
+</div>
+
+<div id="signupModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('signupModal')">&times;</span>
+        <h2>Sign Up</h2>
+        <form id="signupForm" onsubmit="handleSignup(event)">
+            <div class="form-group">
+                <label for="signupName">Full Name</label>
+                <input type="text" id="signupName" required>
+            </div>
+            <div class="form-group">
+                <label for="signupEmail">Email</label>
+                <input type="email" id="signupEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="signupPhone">Phone Number</label>
+                <input type="tel" id="signupPhone" required>
+            </div>
+            <div class="form-group">
+                <label for="signupPassword">Password</label>
+                <input type="password" id="signupPassword" required>
+            </div>
+            <div class="form-group">
+                <label for="signupConfirmPassword">Confirm Password</label>
+                <input type="password" id="signupConfirmPassword" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+            <p class="form-footer">Already have an account? <a href="#" onclick="switchModal('signupModal','loginModal')">Login</a></p>
+        </form>
+    </div>
+</div>
+
+<div id="applicationModal" class="modal">
+    <div class="modal-content modal-large">
+        <span class="close" onclick="closeModal('applicationModal')">&times;</span>
+        <h2>Job Application Form</h2>
+        <form id="applicationForm" onsubmit="handleApplication(event)">
+            <div class="form-group">
+                <label for="appName">Full Name</label>
+                <input type="text" id="appName" required>
+            </div>
+            <div class="form-group">
+                <label for="appEmail">Email</label>
+                <input type="email" id="appEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="appPhone">Phone Number</label>
+                <input type="tel" id="appPhone" required>
+            </div>
+            <div class="form-group">
+                <label for="appPosition">Position Applied For</label>
+                <input type="text" id="appPosition" required>
+            </div>
+            <div class="form-group">
+                <label for="appExperience">Years of Experience</label>
+                <input type="number" id="appExperience" required>
+            </div>
+            <div class="form-group">
+                <label for="appResume">Upload Resume (PDF)</label>
+                <input type="file" id="appResume" accept=".pdf" required>
+            </div>
+            <div class="form-group">
+                <label for="appCoverLetter">Cover Letter</label>
+                <textarea id="appCoverLetter" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit Application</button>
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2025 Management System. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script>
+    // Section toggle
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links li a');
+
+    navLinks.forEach(link=>{
+        link.addEventListener('click', e=>{
+            const targetId = link.getAttribute('href').substring(1);
+            if(!document.getElementById(targetId)) return; // ignore non-section links
+            e.preventDefault();
+            sections.forEach(section=>{
+                section.id===targetId ? section.classList.remove('hidden') : section.classList.add('hidden');
+            });
+            document.getElementById(targetId).scrollIntoView({behavior:'smooth'});
+        });
+    });
+
+    // Modal functions
+    function openModal(modalId){
+        const modal=document.getElementById(modalId);
+        if(modal) modal.style.display='flex';
+    }
+    function closeModal(modalId){
+        const modal=document.getElementById(modalId);
+        if(modal) modal.style.display='none';
+    }
+    function switchModal(closeId, openId){
+        closeModal(closeId);
+        openModal(openId);
+    }
+
+    // Close modal on click outside
+    window.addEventListener('click', e=>{
+        const modals=document.querySelectorAll('.modal');
+        modals.forEach(modal=>{
+            if(e.target===modal) modal.style.display='none';
+        });
+    });
+</script>
+
+<script src="js/main.js"></script>
+</body>
+</html>

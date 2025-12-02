@@ -1,0 +1,308 @@
+/* ============================
+   GLOBAL STYLES
+============================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.hero-image {
+    width: 1200px; /* Adjust size */
+    height: 700px;
+    margin-bottom: 20px; /* Space between image and heading */
+    border-radius: 12px; /* Optional: rounded corners */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4); /* Optional: subtle shadow */
+    align-self: auto; /* Center the image */
+}
+
+
+body {
+    background: linear-gradient(135deg, #1f2a38 0%, #2c3e50 100%);
+    color: #fff;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Glass container effect */
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ============================
+   NAVBAR
+============================ */
+.navbar {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 12px;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 20px;
+    margin: 10px auto;
+    z-index: 999;
+}
+
+.navbar .nav-brand h2 {
+    color: #fff;
+    font-weight: 700;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ffd700;
+}
+
+.btn-nav {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* ============================
+   HERO SECTION
+============================ */
+.hero {
+    background: linear-gradient(135deg, rgba(0,0,0,0.5), rgba(0,0,0,0.6)),
+                url('../images/hero.jpg') center/cover no-repeat;
+    color: #fff;
+    padding: 120px 0;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+.hero h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* ============================
+   BUTTONS
+============================ */
+.btn {
+    padding: 12px 30px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* ============================
+   ABOUT SECTION
+============================ */
+.about-section {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.about-grid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.about-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ============================
+   RECRUITMENT SECTION
+============================ */
+.recruitment-section {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    padding: 70px 0;
+    border-radius: 15px;
+}
+
+/* ============================
+   CONTACT SECTION
+============================ */
+.contact-section {
+    padding: 60px 0;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #1f2a38;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #0f0303;
+    backdrop-filter: blur(5px);
+}
+
+/* ============================
+   MODALS
+============================ */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    background-color: #1E90FF;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    gap: 20px;
+}
+
+.modal-content {
+    background: rgba(30, 30, 30, 0.9); /* Dark semi-transparent */
+    backdrop-filter: blur(15px);
+    width: 90%;
+    max-width: 450px;
+    padding: 25px;
+    border-radius: 15px;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+    color: #0c0606;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+.modal-large {
+    max-width: 700px !important;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #080505;
+}
+
+/* Inputs inside modals */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    background: rgba(50, 50, 50, 0.8);
+    color: #110b0b;
+    backdrop-filter: blur(5px);
+}
+
+/* Buttons inside modals */
+.modal-content .btn {
+    background-color: #4CAF50;
+    color: #0e0b0b;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.modal-content .btn:hover {
+    background-color: #45a049;
+}
+
+/* Align checkbox with label text */
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between checkbox and text */
+    cursor: pointer;
+}
+
+.form-group input[type="checkbox"] {
+    width: 18px;  /* optional: size of checkbox */
+    height: 18px;
+    margin: 0;
+}
+
+
+/* Links inside modals */
+.modal-content a {
+    color: #1E90FF;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* ============================
+   FOOTER
+============================ */
+.footer {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    color: #0a0606;
+    padding: 20px 0;
+    text-align: center;
+    border-radius: 12px;
+    margin-top: 50px;
+}
