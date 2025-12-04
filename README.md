@@ -1,7 +1,7 @@
 <!-- Banner -->
 <p align="center">
 
-  <img src="client/src/pages/images/index.png" alt="Management system logo"/>
+  <img src="client/src/pages/images/logo.png" alt="Management system logo"/>
   
 </p>
 
