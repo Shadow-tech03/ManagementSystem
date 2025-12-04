@@ -60,8 +60,8 @@
 <section id="home" class="hero">
     <div class="container">
         <div class="hero-content">
-            <img src="images/index.png" alt="Logo" class="hero-image">
-            <h1>Welcome to Our Management System</h1>
+            <img src="images/welcome.png" alt="Logo" class="hero-image">
+            <h1>Welcome to the Digital Management System</h1>
             <p>Streamline your operations with our comprehensive management platform</p>
             <div class="hero-buttons">
                 <button class="btn btn-primary" onclick="openModal('loginModal')">Login</button>
@@ -150,6 +150,14 @@
             <div class="form-group">
                 <label for="signupConfirmPassword">Confirm Password</label>
                 <input type="password" id="signupConfirmPassword" required>
+            </div>
+            <div class="dropdown">
+                <div class="dropdown-btn">Select role</div>
+                <div class="dropdown-content">
+                    <div>Admin</div>
+                    <div>User</div>
+                    <div>Guest</div>
+                </div>
             </div>
             <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
             <p class="form-footer">Already have an account? <a href="#" onclick="switchModal('signupModal','loginModal')">Login</a></p>
